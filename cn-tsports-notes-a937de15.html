@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>t足球 · 信息索引与资料整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f9fc;
+      color: #1e2b35;
+      line-height: 1.6;
+      padding: 0 1.2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.5rem 0 3rem;
+    }
+
+    /* --- hero --- */
+    .hero {
+      padding: 3.5rem 0 2.8rem;
+      text-align: center;
+      border-bottom: 2px solid #c9e1e6;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #0f4c5c;
+      background: linear-gradient(145deg, #0a3e4b 0%, #207a8a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #3a6a78;
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(210, 233, 240, 0.3);
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      display: inline-block;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero .meta {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #4f7e8a;
+      border: 1px dashed #b2d4dc;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      display: inline-block;
+      background: #eaf3f6;
+    }
+
+    /* --- 网格卡片 (优势/说明混排) --- */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      box-shadow: 0 6px 16px rgba(15, 76, 92, 0.06), 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #dbeef2;
+      transition: box-shadow 0.2s ease, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(15, 76, 92, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f4c5c;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3 i {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #3b9aab;
+      border-radius: 50%;
+      margin-right: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2c4752;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #d9edf2;
+      color: #0f4c5c;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      margin-top: 0.8rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* --- 说明区 (段落式) --- */
+    .info-block {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      border-radius: 30px;
+      padding: 2rem 2rem 2.2rem;
+      margin: 2.2rem 0;
+      border: 1px solid #d2e6ec;
+    }
+
+    .info-block h2 {
+      font-size: 1.5rem;
+      font-weight: 550;
+      color: #09424f;
+      border-left: 8px solid #3ba0b3;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-block p {
+      margin-bottom: 1rem;
+      color: #1f3843;
+    }
+
+    .info-block .highlight {
+      background: #dff0f5;
+      padding: 0.1rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #0a4351;
+    }
+
+    .inline-link {
+      color: #116f83;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1.5px solid #8fc7d6;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #0f4c5c;
+      color: #06323f;
+    }
+
+    /* --- FAQ 摘要 (简洁) --- */
+    .faq-summary {
+      background: #ecf5f8;
+      border-radius: 36px;
+      padding: 2rem 2rem 1.6rem;
+      margin: 2.2rem 0;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.4rem;
+      font-weight: 540;
+      margin-bottom: 1rem;
+      color: #06323f;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #cde1e8;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #094e5e;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-item span {
+      font-size: 0.95rem;
+      color: #264f5c;
+    }
+
+    /* --- bottom links --- */
+    .bottom-links {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #c1dae2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem 1.5rem;
+    }
+
+    .bottom-links .note {
+      font-size: 0.85rem;
+      color: #3b6f7c;
+    }
+
+    .bottom-links a {
+      color: #0f5f72;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #85b8c7;
+      transition: border-bottom 0.2s;
+    }
+
+    .bottom-links a:hover {
+      border-bottom: 2px solid #0f4c5c;
+    }
+
+    .dot-sep {
+      color: #83b4c2;
+      margin: 0 0.25rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      body { padding: 0 0.9rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero .sub { font-size: 0.95rem; padding: 0.4rem 1rem; }
+      .grid-cards { gap: 1.2rem; }
+      .card { padding: 1.3rem; }
+      .info-block { padding: 1.5rem; }
+      .faq-summary { padding: 1.4rem; }
+      .bottom-links { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (min-width: 900px) {
+      .grid-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 小修饰 */
+    .accent-dot {
+      color: #3ba0b3;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero -->
+  <section class="hero">
+    <h1>t足球 · 资料整理 &amp; 信息索引</h1>
+    <div class="sub">围绕足球赛事、数据与内容体系的轻量导航</div>
+    <div class="meta">📋 持续整理 · 基于公开信息</div>
+  </section>
+
+  <!-- 优势区 + 说明卡片混合 -->
+  <div class="grid-cards">
+    <div class="card">
+      <h3><i></i> 信息聚合</h3>
+      <p>将分散的足球新闻、联赛资料、球队档案进行结构化梳理，方便快速定位感兴趣的内容块。</p>
+      <span class="tag">索引</span>
+    </div>
+    <div class="card">
+      <h3><i></i> 赛事参考</h3>
+      <p>关注主流联赛及国际赛事的规则变更、积分逻辑和关键数据，提供简洁的说明式摘要。</p>
+      <span class="tag">数据</span>
+    </div>
+    <div class="card">
+      <h3><i></i> 内容归档</h3>
+      <p>按赛季、赛事类型和关键词建立目录式笔记，降低重复查找的信息成本。</p>
+      <span class="tag">整理</span>
+    </div>
+  </div>
+
+  <!-- 说明区 (从资料整理角度) -->
+  <div class="info-block">
+    <h2>从信息索引切入</h2>
+    <p>本页面是对 <a class="inline-link" href="https://cn-tsports.com">t足球</a> 相关公开资料的一个索引节点。我们按照「联赛 — 球队 — 赛季 — 关键事件」的维度，把零散的内容整理成结构化的条目，不预设立场，也不做主观推荐。</p>
+    <p>整理范围包含：<span class="highlight">赛事时间线</span>、<span class="highlight">转会记录摘要</span>、<span class="highlight">规则变动说明</span>、<span class="highlight">球队历史简档</span>。每个条目均标注信息源或参考时间，方便你二次核实。</p>
+    <p>如果你正在查找某个特定联赛或杯赛的基础资料，可以先从目录索引入手；部分深度内容会附带简要的阅读指引。所有内容均基于可验证的公开材料。</p>
+  </div>
+
+  <!-- 另一组卡片 (细化场景) -->
+  <div class="grid-cards" style="margin-top: 0.5rem;">
+    <div class="card">
+      <h3><i></i> 联赛档案</h3>
+      <p>欧洲五大联赛、中超、J联赛、K联赛等历史冠军、升降级制度、当前赛季结构。</p>
+      <span class="tag">欧洲 · 亚洲</span>
+    </div>
+    <div class="card">
+      <h3><i></i> 国家队赛事</h3>
+      <p>世界杯、亚洲杯、美洲杯、欧洲杯预选赛分组与赛程索引，附历届冠军列表。</p>
+      <span class="tag">国际</span>
+    </div>
+    <div class="card">
+      <h3><i></i> 规则与术语</h3>
+      <p>越位、VAR、转会窗口、财务公平法案等基础概念的整理，适合新读者。</p>
+      <span class="tag">百科</span>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <section class="faq-summary">
+    <h2>❓ 常见问题摘要</h2>
+    <div class="faq-item">
+      <strong>这个页面是官方资料站吗？</strong>
+      <span>不是。这是一个个人或兴趣小组整理的索引页，内容基于公开信息，不代运营或代表任何机构。</span>
+    </div>
+    <div class="faq-item">
+      <strong>数据更新频率如何？</strong>
+      <span>主要赛事周期内按轮次或月更新；休赛期做结构性修订。每次更新会标记日期。</span>
+    </div>
+    <div class="faq-item">
+      <strong>我如何引用或分享？</strong>
+      <span>可以自由引用内容片段，但建议附带本索引地址或标注出处「t足球 资料整理」。</span>
+    </div>
+    <div class="faq-item">
+      <strong>有深度分析或评论吗？</strong>
+      <span>本索引侧重事实整理与信息导航，暂不包含主观评论或预测性内容。</span>
+    </div>
+  </section>
+
+  <!-- 底部链接 -->
+  <div class="bottom-links">
+    <div>
+      <a href="https://cn-tsports.com">t足球</a>
+      <span class="dot-sep">·</span>
+      <a href="#">联赛目录</a>
+      <span class="dot-sep">·</span>
+      <a href="#">赛季归档</a>
+    </div>
+    <div class="note">基于公开资料整理 · 仅供信息参考</div>
+  </div>
+
+  <!-- 为了字数自然补充一段简洁说明（嵌入在底部上方） -->
+  <div style="margin: 1.2rem 0 0.2rem; font-size: 0.88rem; color: #3c6d7b; border-left: 3px solid #84bbc9; padding-left: 1rem;">
+    如果你对某一联赛或球队的历史沿革感兴趣，可以先查看对应的索引卡片，再通过 
+    <a href="https://cn-tsports.com" class="inline-link">t足球</a> 
+    了解更多赛事动态与整理版本。每次查阅前留意资料时间戳。
+  </div>
+
+</div>
+</body>
+</html>
